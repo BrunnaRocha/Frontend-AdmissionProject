@@ -4,7 +4,7 @@ const initialState = {
 
 export const todos = (state = initialState, action) => {
     switch (action.type) {
-        case "CREATE_TODO";
+        case "CREATE_TODO":
             const newTodos = [
                 ...state.todos,
                 { title: action.payload.title, completed: false }
@@ -14,3 +14,5 @@ export const todos = (state = initialState, action) => {
             return state;
     }
 };
+
+export default todos;
