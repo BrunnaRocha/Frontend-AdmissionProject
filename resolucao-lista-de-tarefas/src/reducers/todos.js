@@ -1,5 +1,6 @@
 const initialState = {
-    todos: []
+    todos: [],
+    currentTodoTitle: ""
 };
 
 export const todos = (state = initialState, action) => {
@@ -15,6 +16,8 @@ export const todos = (state = initialState, action) => {
                 newTodo
             ];
             return { ...state, tofod: newTodos };
+        case "UPDATE_TODO_TITLE":
+            return { ...state, currentTodoTitle: action.payload.newTitle}
         default:
             return state;
     }

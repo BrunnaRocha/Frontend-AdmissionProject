@@ -7,3 +7,10 @@ export const createTodo = ( id, title ) => {
         }
     };
 };
+
+export const updateTodoTitle = newTitle => ({
+    type: "UPDATE_TODO_TITLE",
+    payload: {
+        newTitle: newTitle,
+    }
+});
