@@ -3,7 +3,6 @@ export const createTodo = ( id, title ) => {
         type: "CREATE_TODO",
         payload: {
             id: id,
-            title: title
         }
     };
 };

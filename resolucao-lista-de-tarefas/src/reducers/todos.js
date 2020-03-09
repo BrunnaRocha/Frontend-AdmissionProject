@@ -8,14 +8,14 @@ export const todos = (state = initialState, action) => {
         case "CREATE_TODO":
             const newTodo = { 
                 id: action.payload.id, 
-                title: action.payload.title, 
+                title: state.currentTodoTitle, 
                 completed: false 
             }
             const newTodos = [
                 ...state.todos,
                 newTodo
             ];
-            return { ...state, tofod: newTodos };
+            return { ...state, tofod: newTodos, currentTodoTitle: ""  };
         case "UPDATE_TODO_TITLE":
             return { ...state, currentTodoTitle: action.payload.newTitle}
         default:
