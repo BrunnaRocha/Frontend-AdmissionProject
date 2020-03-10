@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
     deleteTodo: (id) => dispatch(deleteTodo)
 })
 
-export default connect(mapStateToprops)(TodoList);
+export default connect(mapStateToprops, mapDispatchToProps)(TodoList);
