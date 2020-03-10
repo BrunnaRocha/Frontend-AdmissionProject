@@ -17,7 +17,26 @@ export const todos = (state = initialState, action) => {
             ];
             return { ...state, allTodos: newTodos, currentTodoTitle: ""  };
         case "UPDATE_TODO_TITLE":
-            return { ...state, currentTodoTitle: action.payload.newTitle}
+            return { ...state, currentTodoTitle: action.payload.newTitle};
+        case "COMPLETE_TODO":
+            const indexToEdit = state.allTodos.findIndex(
+                todo => todo.id === action.payload.id
+            );
+            const newAllTodos = [...state.allTodos];
+
+            newAllTodos[indexToEdit].completed = true;
+
+            return { ...state, allTodos: newAllTodos };
+        case "DELETE_TODO":
+            const indexToRemove = state.allTodos.findIndex(
+                todo => todo.id === action.payload.id
+            );
+            
+            const allTodosWithoutRemoved = [...state.allTodos];
+
+            allTodosWithoutRemoved.splice(indexToRemove, 1);
+            
+            return { ...state, allTodos: allTodosWithoutRemoved }
         default:
             return state;
     }

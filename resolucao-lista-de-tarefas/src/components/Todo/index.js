@@ -6,13 +6,23 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import IconButton from "@material-ui/core/IconButton";
 
 
-export const Todo = props => (
-    <ListItem button onClick={props.onComplete}>
-        <ListItemText primary={props.title} />
-            <ListItemSecondaryAction>
-                <IconButton onClick={props.onDelete}>
-                    <CancelIcon />
-                </IconButton>
-            </ListItemSecondaryAction>
+export const Todo = props => {
+    const handleComplete = () => {
+        props.onComplete(props.todo.id)
+    };
+    const handleDelete = () => {
+        props.onDelete(props.todo.id)
+    };
+
+
+    return (
+        <ListItem button onClick={handleComplete}>
+            <ListItemText primary={props.todo.title} />
+                <ListItemSecondaryAction>
+                    <IconButton onClick={handleDelete}>
+                        <CancelIcon />
+                    </IconButton>
+                </ListItemSecondaryAction>
         </ListItem>
-)
+    )
+};

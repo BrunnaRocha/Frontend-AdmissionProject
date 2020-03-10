@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Todo } from "../../components/Todo";
 import List from "@material-ui/core/List";
-import { Todo } from "../../components/Todo"
+import { completeTodo, deleteTodo  } from "../../actions/todos"
+
 
 
 
 const TodoList = props => {
-    const onDelete = () => {
-        console.log("apaga!");
+    const onDelete = id => {
     };
-    const onComplete = () => {
-        console.log("Completa!");
+    const onComplete = id => {
     };
 
 
@@ -19,7 +19,7 @@ const TodoList = props => {
             {props.todos.map(todo => (
                 <Todo 
                     key={todo.id} 
-                    title={todo.title} 
+                    todo={todo}
                     onComplete={onComplete}
                     onDelete={onDelete}
                 />
@@ -31,5 +31,10 @@ const TodoList = props => {
 const mapStateToprops = state => ({
     todos: state.todos.allTodos
 });
+
+const mapDispatchToProps = dispatch => ({
+    completeTodo: (id) => dispatch(completeTodo),
+    deleteTodo: (id) => dispatch(deleteTodo)
+})
 
 export default connect(mapStateToprops)(TodoList);
