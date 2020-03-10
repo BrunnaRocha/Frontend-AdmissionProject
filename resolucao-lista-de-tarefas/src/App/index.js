@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from "react-redux";
 import store from "../store";
 import styled from "styled-components";
-import NewTodoInput from "../containers/NewTodoInput"
+import NewTodoInput from "../containers/NewTodoInput";
+import TodoList from '../containers/TodoList';
 
 
 const PageWrapper = styled.div`
@@ -17,8 +18,8 @@ function App() {
     return (
         <Provider store={store}>
             <PageWrapper>
-                <NewTodoInput>Input de texto</NewTodoInput>
-                <p>Lista de tarefas</p>
+                <NewTodoInput/>
+                <TodoList/>
                 <p>Filtro</p>
             </PageWrapper>
         </Provider>
