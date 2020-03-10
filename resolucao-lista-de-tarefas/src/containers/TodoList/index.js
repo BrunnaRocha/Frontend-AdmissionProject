@@ -1,14 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import List from "@material-ui/core"
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListemItemText from "@material-ui/core/ListItemText";
 
  const TodoList = props => {
      return (
-         <div>
+         <List>
             {props.todos.map(todo => (
-                <p>{todo.title}</p>
+                <ListItem>
+                    <ListemItemText primary={todo.title}/>
+                </ListItem>
             ))}
-        </div>
+        </List>
      );
  };
 
